@@ -1,0 +1,136 @@
+fileFormatVersion: 2
+guid: bf26bc9f84eb6b64fb739651f7bc1f77
+timeCreated: 1506151558
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: CocpitBase
+    100004: CocpitBase_001
+    100006: CocpitBase_002
+    100008: Core
+    100010: Gun
+    100012: Icosphere
+    100014: Wing
+    100016: Wing_001
+    100018: Wing_002
+    100020: Wing_003
+    400000: //RootNode
+    400002: CocpitBase
+    400004: CocpitBase_001
+    400006: CocpitBase_002
+    400008: Core
+    400010: Gun
+    400012: Icosphere
+    400014: Wing
+    400016: Wing_001
+    400018: Wing_002
+    400020: Wing_003
+    2300000: CocpitBase
+    2300002: CocpitBase_001
+    2300004: CocpitBase_002
+    2300006: Core
+    2300008: Gun
+    2300010: Icosphere
+    2300012: Wing
+    2300014: Wing_001
+    2300016: Wing_002
+    2300018: Wing_003
+    3300000: CocpitBase
+    3300002: CocpitBase_001
+    3300004: CocpitBase_002
+    3300006: Core
+    3300008: Gun
+    3300010: Icosphere
+    3300012: Wing
+    3300014: Wing_001
+    3300016: Wing_002
+    3300018: Wing_003
+    4300000: CocpitBase_001
+    4300002: CocpitBase_002
+    4300004: Icosphere
+    4300006: CocpitBase
+    4300008: Core
+    4300010: Wing_003
+    4300012: Wing_002
+    4300014: Wing_001
+    4300016: Wing
+    4300018: Gun
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
