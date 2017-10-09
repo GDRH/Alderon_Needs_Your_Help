@@ -1,9 +1,13 @@
 #Changelog
+
 ##27.09.2017
+
 *Initial Commit.
 *Changed Unity Version.
+
 ##9.10.2017
-*[Lack of updates due to school]
+
+*(Lack of updates due to school)
 *+Changelog.
 *=Fixed Camera (finally).
 *+Roll function.
@@ -11,6 +15,7 @@
 *=Changed some comments.
 
 ##To-Do:
+
 *Add shoot function.
 *Add background.
 *Add AI.
