@@ -7,7 +7,6 @@ public class PlayerMovement : MonoBehaviour {
     public float speed = 15f;
     public float rotatespeed = 2.5f;
     //Mouse Positions/Angles
-    float RollVal;
     float mouseX;
     float mouseY;
     float CameraY = 0f;
@@ -26,6 +25,7 @@ public class PlayerMovement : MonoBehaviour {
         Player = this.transform;
         //Find Main Camera
         Camera = GameObject.Find("Main Camera").transform;
+        //Distance between camera and  player
         //Initiate Last Position
         TarLastPos = target.position;
     }
@@ -46,10 +46,10 @@ public class PlayerMovement : MonoBehaviour {
         }
         //Get RigidBody
         Rigidbody rb = Camera.GetComponent<Rigidbody>();
-        //Move Ship F/B , L/R , Roll
+        //Move Ship
         if (Input.GetButton("Horizontal"))
         {
-            //Left Right 
+            //Left Right
             rb.AddForce(Camera.right * Input.GetAxis("Horizontal")*speed);
         }
         if (Input.GetButton("Vertical"))
@@ -57,29 +57,25 @@ public class PlayerMovement : MonoBehaviour {
             //Forward Backwards
             rb.AddForce(Camera.forward * Input.GetAxis("Vertical")*speed);
         }
-        if(Input.GetButton("Roll"))
-        {
-            //Roll
-            RollVal = (rotatespeed * 1.125f) * Input.GetAxis("Roll");
-            Camera.RotateAround(Camera.position,Camera.forward,RollVal);
-        }
         //Ship(Camera) follows mouse
         //GetAxis Mouse X or Y  mean the diffrence  of pixels/ distance between where the mouse was and is now
         //CameraMod if the player is upside down
-        mouseX = Input.GetAxis("Mouse X");
+        mouseX = Input.GetAxis("Mouse X")*CameraMod;
         mouseY = Input.GetAxis("Mouse Y");
         //If it didn't move it is the same
-        CameraY = mouseX * rotatespeed;
-        CameraX = mouseY * rotatespeed;
+        CameraY += mouseX * rotatespeed;
+        CameraX -= mouseY * rotatespeed;
+        //LOcal or not, doesn't really matter
         //Set the new rotation
-        Camera.RotateAround(Camera.position, Camera.up, CameraY);
-        Camera.RotateAround(Camera.position, Camera.right, -CameraX);
+        Camera.localRotation = Quaternion.Euler(CameraX, CameraY, 0f);
         //Now smooth it
         if (targetChanged(target, TarLastPos))
         {
             StartCoroutine(LerpPlayer(0.5f));
         }
         Player.rotation = Camera.rotation;
+        //
+        //Player.position = Camera.position - CamOffset;
     }
     //FUNCTIONS
     bool targetChanged(Transform target, Vector3 lastPos)
@@ -96,17 +92,50 @@ public class PlayerMovement : MonoBehaviour {
         else
             return false;
     }
+    /*IEnumerator FlipCamera(Transform Camera)
+    {
+        fliping = true;
+        yield return new WaitForSeconds(0.1f);
+        if (
+            /*((Camera.degreeAngles().x >= 0 && Camera.degreeAngles().x <= 20) && (LastRot <= 360 && LastRot >=340)) || //Camera came from 360 towards 0
+            ((Camera.degreeAngles().x <= 360 && Camera.degreeAngles().x >= 340) && (LastRot >= 0 && LastRot <= 20))  || //Camera came from 0 towards 360
+            (Camera.degreeAngles().x > 180 && LastRot <= 180)  || //Camera came from under 180 towards 180
+            (Camera.degreeAngles().x < 180 && LastRot >= 180)  //Camera came from over 180 towards 180
+            ((Camera.degreeAngles().x >= 90 && LastRot < 90) && !((Camera.degreeAngles().x <= 20 && LastRot >= 340) || (Camera.degreeAngles().x >= 340 && LastRot <= 20))) ||
+            ((Camera.degreeAngles().x < 90 && LastRot >= 90) && !((Camera.degreeAngles().x <= 20 && LastRot >= 340) || (Camera.degreeAngles().x >= 340 && LastRot <= 20))) ||
+            ((Camera.degreeAngles().x >= 270 && LastRot < 270) && !((Camera.degreeAngles().x <= 20 && LastRot >= 340) || (Camera.degreeAngles().x >= 340 && LastRot <= 20))) ||
+            ((Camera.degreeAngles().x < 270 && LastRot >= 270) && !((Camera.degreeAngles().x <= 20 && LastRot >= 340) || (Camera.degreeAngles().x >= 340 && LastRot <= 20)))
+            
+            Vector3.Dot(Player.up, Vector3.down) > 0f
+          )
+        {
+            Debug.LogWarning("FLIPPED");
+            if (CameraMod > 0)
+            {
+                CameraMod = -1;
+            }
+            else
+            {
+                CameraMod = 1;
+            }
+        }
+        fliping = false;
+        yield return null;
+    }*/
     IEnumerator LerpPlayer(float duration)
     {
         Vector3 StartingPos = Player.transform.position;
+        // Quaternion StartingOr = Player.transform.rotation;
         float StartTime = Time.time;
         float t = 0f;
         while (t < 1)
         {
             t = (Time.time - StartTime) / duration;
             this.transform.position = Vector3.Lerp(StartingPos, target.position, t);
+            //this.transform.rotation = Quaternion.Lerp(StartingOr, Camera.rotation, t*3);
             yield return null;
         }
         this.transform.position = target.position;
+        //this.transform.rotation = Camera.rotation;
     }
 }
