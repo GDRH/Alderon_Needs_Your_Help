@@ -12,9 +12,16 @@
 * +Roll function. *-Unused script. 
 * =Changed some comments.
 
+## 17.10.2017
+
+* Finished working on lasers.
+* Made dynamic laser intesity based on distance from ship.
+* Made laser destroy based on distance from player and if it collided with  a ship.
+* Added a "header file". Note: In C# i'm using a namespace rather then a header file, as I do not want to mess with .dll files as it can be time-consuming and, to be honest, it's just easier copying a .cs file rather then compiling a .dll and importing it.
+
 ## To-Do:
 
-* Add shoot function. 
+* ~~Add shoot function.~~ DONE! 
 * Add background. 
 * Add AI. 
 * (?) Use websockets to make game multiplayer 

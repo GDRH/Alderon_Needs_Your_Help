@@ -79,6 +79,7 @@ public class PlayerMovement : MonoBehaviour {
         {
             StartCoroutine(LerpPlayer(0.5f));
         }
+        //Set player's rotation to Camera's
         Player.rotation = Camera.rotation;
     }
     //FUNCTIONS
@@ -96,6 +97,7 @@ public class PlayerMovement : MonoBehaviour {
         else
             return false;
     }
+    //Move player so it is in fron of camera
     IEnumerator LerpPlayer(float duration)
     {
         Vector3 StartingPos = Player.transform.position;
