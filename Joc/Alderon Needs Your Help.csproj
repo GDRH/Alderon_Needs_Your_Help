@@ -78,9 +78,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Header\ZeroLib.cs" />
     <Compile Include="Assets\Scripts\[UNUSED]CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\Classes\Player.cs" />
     <Compile Include="Assets\Scripts\ExtensionMethods.cs" />
+    <Compile Include="Assets\Scripts\Header\ZeroLib.cs" />
     <Compile Include="Assets\Scripts\LaserMove.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Shoot.cs" />

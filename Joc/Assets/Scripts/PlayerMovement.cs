@@ -26,6 +26,8 @@ public class PlayerMovement : MonoBehaviour {
         Player = this.transform;
         //Find Main Camera
         Camera = GameObject.Find("Main Camera").transform;
+        //Find "target"
+        target = Camera.GetChild(0);
         //Initiate Last Position
         TarLastPos = target.position;
     }
